@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  background: #000;
+}
+
+section {
+  height: 100vh;
+}
+
+span {
+  position: absolute;
+  pointer-events: none;
+  background: #fff; /*!顯示出 方塊*/
+  animation: animate 5s linear infinite; /*!此秒數 與js設定timeout相同 動畫會持續到消失為止*/
+}
+
+@keyframes animate {
+  0% {
+    /** scale(0)初始不可見-有誕生放大效果*/
+    transform: scale(0) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1; /*todo 淡入效果 -需搭配上方opacity:0*/
+  }
+  90% {
+    opacity: 1; /*todo 淡出效果 -需搭配下方opacity:0*/
+  }
+  100% {
+    /** scale(1)完全顯示-有誕生放大效果*/
+    /*! translateY(-500%)向上懸浮*/
+    /*! rotate(360deg)旋轉*/
+    transform: scale(1) translateY(-500%) rotate(360deg);
+    opacity: 0;
+  }
+}
